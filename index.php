@@ -16,8 +16,6 @@ if (!empty($name) && !empty($mail) && !empty($age)) {
     } else {
         echo "Accesso Negato";
     };
-} else {
-    echo "Alcuni campi non compilati";
 }
 
 ?>
@@ -34,40 +32,62 @@ $posts = [
     '10/01/2019' => [
         [
             'title' => 'Post 1',
-            'author' => 'Michele Papagni',
+            'author' => 'Marco',
             'text' => 'Testo post 1'
         ],
         [
             'title' => 'Post 2',
-            'author' => 'Michele Papagni',
+            'author' => 'Michele',
             'text' => 'Testo post 2'
         ],
     ],
     '10/02/2019' => [
         [
             'title' => 'Post 3',
-            'author' => 'Michele Papagni',
+            'author' => 'Martina',
             'text' => 'Testo post 3'
         ]
     ],
     '15/05/2019' => [
         [
             'title' => 'Post 4',
-            'author' => 'Michele Papagni',
+            'author' => 'Alessio',
             'text' => 'Testo post 4'
         ],
         [
             'title' => 'Post 5',
-            'author' => 'Michele Papagni',
+            'author' => 'Luca',
             'text' => 'Testo post 5'
         ],
         [
             'title' => 'Post 6',
-            'author' => 'Michele Papagni',
+            'author' => 'Alessio',
             'text' => 'Testo post 6'
         ]
     ],
 ];
+
+$keys_data = array_keys($posts);
+
+$keys_info = array_keys($keys_data);
+
+
+?>
+
+<?php
+
+/* Snack 3 */
+/* Creare un array con 15 numeri casuali, 
+tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta. */
+
+$numbers = [];
+
+while (count($numbers) < 15) {
+    $random_number = rand(1, 100);
+    if (!in_array($random_number, $numbers)) {
+        $numbers[] = $random_number;
+    }
+}
 
 ?>
 
@@ -83,7 +103,7 @@ $posts = [
 
 <body>
 
-    <section id="Snack-1">
+    <!-- <section id="Snack-1">
         <div id="name">
             <form>
                 <h3>Inserisci un nome</h3>
@@ -99,11 +119,29 @@ $posts = [
             </form>
 
         </div>
-    </section>
+    </section> -->
 
-    <section id="Snack-2">
+    <!-- <section id="Snack-2">
+        <ul>
+            <?php for ($i = 0; $i < count($keys_data); $i++) : ?>
+                <li>Data: <?= "$keys_data[$i]" ?></li>
+            <?php endfor; ?>
+        </ul>
 
-    </section>
+        <ul>
+            <?php for ($i = 0; $i < count($keys_info); $i++) : ?>
+                <li>Info: <?= "$keys_info[$i]['text']" ?></li>
+            <?php endfor; ?>
+        </ul>
+    </section> -->
+
+    <!-- <section id="snack-3">
+        <ul>
+            <?php for ($i = 0; $i < count($numbers); $i++) : ?>
+                <li><?= $numbers[$i] ?></li>
+            <?php endfor; ?>
+        </ul>
+    </section> -->
 </body>
 
 </html>
