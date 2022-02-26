@@ -67,10 +67,9 @@ $posts = [
     ],
 ];
 
+var_dump($posts);
+
 $keys_data = array_keys($posts);
-
-$keys_info = array_keys($keys_data);
-
 
 ?>
 
@@ -121,19 +120,24 @@ while (count($numbers) < 15) {
         </div>
     </section> -->
 
-    <!-- <section id="Snack-2">
+    <section id="Snack-2">
         <ul>
-            <?php for ($i = 0; $i < count($keys_data); $i++) : ?>
-                <li>Data: <?= "$keys_data[$i]" ?></li>
-            <?php endfor; ?>
-        </ul>
+            <?php for ($i = 0; $i < count($posts); $i++) : ?>
+                <?php $current_post = $posts[$keys_data[$i]] ?>
 
-        <ul>
-            <?php for ($i = 0; $i < count($keys_info); $i++) : ?>
-                <li>Info: <?= "$keys_info[$i]['text']" ?></li>
+                <?php for ($j = 0; $j < count($current_post); $j++) : ?>
+
+                    <h2>Data: <?= $keys_data[$j] ?></h2>
+
+                    <li>Titolo: <?= $current_post[$j]['title'] ?></li>
+                    <li>Autore: <?= $current_post[$j]['author'] ?></li>
+                    <li>Testo: <?= $current_post[$j]['text'] ?></li>
+
+                <?php endfor; ?>
+
             <?php endfor; ?>
         </ul>
-    </section> -->
+    </section>
 
     <!-- <section id="snack-3">
         <ul>
