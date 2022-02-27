@@ -93,16 +93,47 @@ while (count($numbers) < 15) {
 Prendere il paragrafo e suddividerlo in tanti paragrafi in base ai punti: 
 ogni punto un nuovo paragrafo. -->
 
-<?php
+<!-- <?php
 
-$paragraph = "Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        $paragraph = "Lorem ipsum dolor sit amet consectetur adipisicing elit. 
 Soluta dolore, nihil adipisci molestiae consectetur magni totam. 
 Sed nisi, ipsa obcaecati a commodi perspiciatis saepe quisquam.
 Repellat facilis alias suscipit libero!";
 
-$new_paragraph = explode(".", $paragraph);
+        $new_paragraph = explode(".", $paragraph);
 
-var_dump($new_paragraph);
+        var_dump($new_paragraph);
+
+        ?> -->
+
+<!-- Snack 5 -->
+
+<?php
+
+$db = [
+    'teachers' => [
+        [
+            'name' => 'Michele',
+            'lastname' => 'Papagni'
+        ],
+        [
+            'name' => 'Fabio',
+            'lastname' => 'Forghieri'
+        ]
+    ],
+    'pm' => [
+        [
+            'name' => 'Roberto',
+            'lastname' => 'Marazzini'
+        ],
+        [
+            'name' => 'Federico',
+            'lastname' => 'Pellegrini'
+        ]
+    ]
+];
+
+$keys_db = array_keys($db);
 
 ?>
 
@@ -113,7 +144,21 @@ var_dump($new_paragraph);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snack 1</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Snack</title>
+    <style>
+        .grey {
+            width: 200px;
+            height: 50px;
+            background-color: grey;
+        }
+
+        .green {
+            width: 200px;
+            height: 50px;
+            background-color: green;
+        }
+    </style>
 </head>
 
 <body>
@@ -163,10 +208,32 @@ var_dump($new_paragraph);
         </ul>
     </section> -->
 
-    <section id="snack-4">
+    <!-- <section id="snack-4">
 
         <?php for ($i = 0; $i < count($new_paragraph); $i++) : ?>
             <p> <?php print_r($new_paragraph[$i]) ?> </p>
+        <?php endfor; ?>
+
+    </section> -->
+
+    <section id="snack-5">
+
+        <?php for ($i = 0; $i < count($db); $i++) : ?>
+            <?php $current_db = $db[$keys_db[$i]] ?>
+
+            <h2><?= $keys_db[$i] ?></h2>
+
+            <?php for ($j = 0; $j < count($current_db); $j++) : ?>
+
+                <div class="<?= $keys_db[$i] === 'teachers' ? 'grey' : 'green' ?>">
+
+                    <li>Nome: <?= $current_db[$j]['name'] ?></li>
+                    <li>Cognome: <?= $current_db[$j]['lastname'] ?></li>
+
+                </div>
+
+            <?php endfor; ?>
+
         <?php endfor; ?>
 
     </section>
