@@ -67,8 +67,6 @@ $posts = [
     ],
 ];
 
-var_dump($posts);
-
 $keys_data = array_keys($posts);
 
 ?>
@@ -87,6 +85,24 @@ while (count($numbers) < 15) {
         $numbers[] = $random_number;
     }
 }
+
+?>
+
+<!-- Snack 4 -->
+<!-- Prendere un paragrafo abbastanza lungo, contenente diverse frasi. 
+Prendere il paragrafo e suddividerlo in tanti paragrafi in base ai punti: 
+ogni punto un nuovo paragrafo. -->
+
+<?php
+
+$paragraph = "Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+Soluta dolore, nihil adipisci molestiae consectetur magni totam. 
+Sed nisi, ipsa obcaecati a commodi perspiciatis saepe quisquam.
+Repellat facilis alias suscipit libero!";
+
+$new_paragraph = explode(".", $paragraph);
+
+var_dump($new_paragraph);
 
 ?>
 
@@ -120,7 +136,7 @@ while (count($numbers) < 15) {
         </div>
     </section> -->
 
-    <section id="Snack-2">
+    <!-- <section id="Snack-2">
         <ul>
             <?php for ($i = 0; $i < count($posts); $i++) : ?>
                 <?php $current_post = $posts[$keys_data[$i]] ?>
@@ -137,7 +153,7 @@ while (count($numbers) < 15) {
 
             <?php endfor; ?>
         </ul>
-    </section>
+    </section> -->
 
     <!-- <section id="snack-3">
         <ul>
@@ -146,6 +162,14 @@ while (count($numbers) < 15) {
             <?php endfor; ?>
         </ul>
     </section> -->
+
+    <section id="snack-4">
+
+        <?php for ($i = 0; $i < count($new_paragraph); $i++) : ?>
+            <p> <?php print_r($new_paragraph[$i]) ?> </p>
+        <?php endfor; ?>
+
+    </section>
 </body>
 
 </html>
